@@ -29,5 +29,5 @@ func main() {
 	http.Handle(apiVersion+"/delete-game", middleware.RequestCheck("POST", handlers.DeleteGame, mongoService))
 
 	fmt.Println("Server is running on port 8080...")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8090", nil)
 }

@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "d25f1a69-b964-432b-9b02-c910fc255be0",
+		"name": "go31ngo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25243268"
+	},
+	"item": [
+		{
+			"name": "AddPlayer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\": \"JU87JMCY\",\n    \"uuid\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec62\",\n    \"name\": \"Perry\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/add-player",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"add-player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPlayer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\": \"JU87JMCY\",\n    \"uuid\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec62\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/get-player",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"get-player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddDawnNumbers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drawnNumber\": 26,\n    \"uuid\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec63\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/add-drawn-numbers",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"add-drawn-numbers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddPlayerUsedCode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\": \"JU87JMCY\",\n    \"code\": \"X9X4ZDKCOEAW\",\n    \"player\":\"40959d3b-68aa-4b8a-8355-3356f9e0ec62\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/add-player-used-code",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"add-player-used-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateWinners",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\":\"JU87JMCY\",\n    \"uuid\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec63\",\n    \"winners\": {\n        \"line\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec63\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/update-winners",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"update-winners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetHostGame",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uuid\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec63\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/get-host-game",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"get-host-game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGame",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\": \"JU87JMCY\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/get-game",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"get-game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HasFinished",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\":\"JU87JMCY\",\n    \"uuid\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec63\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/has-finished",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"has-finished"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteGame",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\":\"JU87JMCY\",\n    \"uuid\": \"40959d3b-68aa-4b8a-8355-3356f9e0ec63\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/delete-game",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"delete-game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateGame",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hash\":\"JU87JMCY\",\n    \"maxPlayers\":2,\n    \"host\":\"40959d3b-68aa-4b8a-8355-3356f9e0ec63\",\n    \"mode\":\"private\",\n    \"codes\":[\"K4P1VDVBPF32\",\"X9X4ZDKCOEAW\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/v1/create-game",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"create-game"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

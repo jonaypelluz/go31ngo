@@ -21,6 +21,10 @@ start:
 
 restart: stop start
 
+## Create app file
+create-app:
+	sh ops/scripts/create-app.sh
+
 ## Stops the container
 stop: is-running
 	docker-compose ${DOCKER_COMPOSE} stop

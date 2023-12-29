@@ -4,3 +4,4 @@ if [[ -f ".env" ]]; then
 fi
 
 cp -n ops/docker/go/.env.development .env
+
