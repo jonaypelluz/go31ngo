@@ -24,14 +24,14 @@ func UpdateGameWinners(w http.ResponseWriter, r *http.Request, requestData model
 	}
 
 	if result.MatchedCount == 0 {
-		utils.SendApiResponse(w, "No matching game found or game already finished", http.StatusNotFound)
+		utils.SendApiResponse(w, "No matching game found or game already finished", http.StatusNoContent)
 		return
 	}
 
-	utils.SendApiResponse(w, "", http.StatusNoContent)
+	utils.SendApiResponse(w, "Game winners updated successfully", http.StatusNoContent)
 }
 
-func AddDrawnNumbers(w http.ResponseWriter, r *http.Request, requestData models.AddDrawnNumbersRequest, dbService utils.DBService) {
+func AddDrawnNumber(w http.ResponseWriter, r *http.Request, requestData models.AddDrawnNumberRequest, dbService utils.DBService) {
 	filter := bson.M{"host": requestData.Uuid, "hasfinished": false}
 
 	update := bson.M{
@@ -46,11 +46,11 @@ func AddDrawnNumbers(w http.ResponseWriter, r *http.Request, requestData models.
 	}
 
 	if result.MatchedCount == 0 {
-		utils.SendApiResponse(w, "No matching game found or game already finished", http.StatusNotFound)
+		utils.SendApiResponse(w, "No matching game found or game already finished", http.StatusNoContent)
 		return
 	}
 
-	utils.SendApiResponse(w, "", http.StatusNoContent)
+	utils.SendApiResponse(w, "Drawn number added successfully", http.StatusNoContent)
 }
 
 func DeleteGame(w http.ResponseWriter, r *http.Request, requestData models.DeleteGameRequest, dbService utils.DBService) {
@@ -68,7 +68,7 @@ func DeleteGame(w http.ResponseWriter, r *http.Request, requestData models.Delet
 		return
 	}
 
-	utils.SendApiResponse(w, "", http.StatusNoContent)
+	utils.SendApiResponse(w, "Game deleted successfully", http.StatusNoContent)
 }
 
 func GameHasFinished(w http.ResponseWriter, r *http.Request, requestData models.GameHasFinishedRequest, dbService utils.DBService) {
@@ -85,11 +85,11 @@ func GameHasFinished(w http.ResponseWriter, r *http.Request, requestData models.
 	}
 
 	if result.MatchedCount == 0 {
-		utils.SendApiResponse(w, "No matching game found or game already finished", http.StatusNotFound)
+		utils.SendApiResponse(w, "No matching game found or game already finished", http.StatusNoContent)
 		return
 	}
 
-	utils.SendApiResponse(w, "", http.StatusNoContent)
+	utils.SendApiResponse(w, "Game finish status changed successfully", http.StatusNoContent)
 }
 
 func GetGame(w http.ResponseWriter, r *http.Request, requestData models.GetGameRequest, dbService utils.DBService) {
@@ -104,7 +104,7 @@ func GetGame(w http.ResponseWriter, r *http.Request, requestData models.GetGameR
 	var game models.Game
 	if err := result.Decode(&game); err != nil {
 		if err == mongo.ErrNoDocuments {
-			utils.SendApiResponse(w, "No game found", http.StatusNotFound)
+			utils.SendApiResponse(w, "No game found", http.StatusNoContent)
 			return
 		} else {
 			utils.SendApiResponse(w, "Error decoding game data: "+err.Error(), http.StatusInternalServerError)
@@ -127,7 +127,7 @@ func GetHostGame(w http.ResponseWriter, r *http.Request, requestData models.GetH
 	var game models.Game
 	if err := result.Decode(&game); err != nil {
 		if err == mongo.ErrNoDocuments {
-			utils.SendApiResponse(w, "No game found", http.StatusNotFound)
+			utils.SendApiResponse(w, "No game found", http.StatusNoContent)
 			return
 		} else {
 			utils.SendApiResponse(w, "Error decoding game data: "+err.Error(), http.StatusInternalServerError)
@@ -156,11 +156,11 @@ func AddPlayerUsedCode(w http.ResponseWriter, r *http.Request, requestData model
 	}
 
 	if result.MatchedCount == 0 {
-		utils.SendApiResponse(w, "Code not valid or already used", http.StatusNotFound)
+		utils.SendApiResponse(w, "Code not valid or already used", http.StatusConflict)
 		return
 	}
 
-	utils.SendApiResponse(w, "", http.StatusNoContent)
+	utils.SendApiResponse(w, "Code added successfully", http.StatusNoContent)
 }
 
 func CreateGame(w http.ResponseWriter, r *http.Request, requestData models.CreateGameRequest, dbService utils.DBService) {

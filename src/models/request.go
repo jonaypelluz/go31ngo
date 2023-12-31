@@ -30,7 +30,7 @@ type UpdateGameWinnersRequest struct {
 	Winners map[string]string `json:"winners"`
 }
 
-type AddDrawnNumbersRequest struct {
+type AddDrawnNumberRequest struct {
 	Uuid        string `json:"uuid"`
 	DrawnNumber int    `json:"drawnNumber"`
 }

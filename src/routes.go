@@ -22,7 +22,7 @@ func SetupRoutes(mux *http.ServeMux, cfg *config.Config, mongoService *utils.Mon
 	apiPrefix("/add-player", middleware.RequestCheck("POST", handlers.AddPlayer, mongoService))
 	apiPrefix("/get-player", middleware.RequestCheck("POST", handlers.GetPlayer, mongoService))
 	apiPrefix("/add-player-used-code", middleware.RequestCheck("POST", handlers.AddPlayerUsedCode, mongoService))
-	apiPrefix("/add-drawn-numbers", middleware.RequestCheck("POST", handlers.AddDrawnNumbers, mongoService))
+	apiPrefix("/add-drawn-numbers", middleware.RequestCheck("POST", handlers.AddDrawnNumber, mongoService))
 	apiPrefix("/create-game", middleware.RequestCheck("POST", handlers.CreateGame, mongoService))
 	apiPrefix("/get-host-game", middleware.RequestCheck("POST", handlers.GetHostGame, mongoService))
 	apiPrefix("/has-finished", middleware.RequestCheck("POST", handlers.GameHasFinished, mongoService))
