@@ -45,7 +45,7 @@ func GetPlayer(w http.ResponseWriter, r *http.Request, requestData models.GetPla
 	var player models.Player
 	if err := result.Decode(&player); err != nil {
 		if err == mongo.ErrNoDocuments {
-			utils.SendApiResponse(w, "No player info found", http.StatusNotFound)
+			utils.SendApiResponse(w, "No player info found", http.StatusNoContent)
 			return
 		} else {
 			utils.SendApiResponse(w, "Error decoding player info data: "+err.Error(), http.StatusInternalServerError)
