@@ -10,8 +10,9 @@ type Config struct {
 }
 
 func AppConfig() *Config {
-	return &Config{
+	config := &Config{
 		MongoURI:   os.Getenv("MONGO_URI"),
 		APIVersion: "/api/v1",
 	}
+	return config
 }
