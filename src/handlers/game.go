@@ -5,6 +5,7 @@ import (
 	"go31ngo/src/models"
 	"go31ngo/src/utils"
 	"net/http"
+	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -186,6 +187,7 @@ func CreateGame(w http.ResponseWriter, r *http.Request, requestData models.Creat
 		Winners:      make(map[string]string),
 		Players:      []string{},
 		UsedCodes:    []string{},
+		CreatedAt:    time.Now(),
 	}
 
 	_, err := dbService.InsertOne(context.Background(), "games", newGame)

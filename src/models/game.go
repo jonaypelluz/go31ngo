@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Game struct {
 	Codes        []string          `bson:"codes" json:"codes"`
 	DrawnNumbers []int             `bson:"drawnnumbers,omitempty" json:"drawnNumbers,omitempty"`
@@ -12,4 +14,5 @@ type Game struct {
 	Winners      map[string]string `bson:"winners,omitempty" json:"winners,omitempty"`
 	Players      []string          `bson:"players,omitempty" json:"players,omitempty"`
 	UsedCodes    []string          `bson:"usedcodes,omitempty" json:"usedCodes,omitempty"`
+	CreatedAt    time.Time         `bson:"createdat" json:"createdAt"`
 }

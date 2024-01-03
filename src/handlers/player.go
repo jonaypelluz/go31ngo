@@ -5,6 +5,7 @@ import (
 	"go31ngo/src/models"
 	"go31ngo/src/utils"
 	"net/http"
+	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -24,7 +25,16 @@ func AddPlayer(w http.ResponseWriter, r *http.Request, requestData models.AddPla
 		return
 	}
 
-	_, err = dbService.InsertOne(context.Background(), "players", requestData)
+	newPlayer := models.Player{
+		Name:      requestData.Name,
+		Hash:      requestData.Hash,
+		Numbers:   requestData.Numbers,
+		BingoCard: requestData.BingoCard,
+		Uuid:      requestData.Uuid,
+		CreatedAt: time.Now(),
+	}
+
+	_, err = dbService.InsertOne(context.Background(), "players", newPlayer)
 	if err != nil {
 		utils.SendApiResponse(w, "Error adding player info", http.StatusInternalServerError)
 		return
